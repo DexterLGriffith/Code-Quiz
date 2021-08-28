@@ -5,21 +5,23 @@ var allQuestions = [{
 },
 {
     question: "Arrays in Javascript can be used to store_."
-    choices: ["Numbers and Strings", "Other Arrays", "Booleans", "All of the Above"],
+    choice: ["Numbers and Strings", "Other Arrays", "Booleans", "All of the Above"],
     correctAnswer:
 },
 {  
     question: "Commonly used data types do not include"
-    choices: ["Strings", "Booleans", "Alerts", "Numbers"],
+    choice: ["Strings", "Booleans", "Alerts", "Numbers"],
     correctAnswer:
 },
 {
     question: "String values must be enclosed within __ when being assigned to variables."
-    choices: ["Commas", "Curly Brackets", "Quotes", "Parentheses"],
+    choice: ["Commas", "Curly Brackets", "Quotes", "Parentheses"],
     correctAnswer:
 },
 {
     question: "A very useful tool used during development and debugging for printing content to the debugger is: "
-    choices: ["Javascript", "Terminal/bash", "For Loops", "Console log"],
+    choice: ["Javascript", "Terminal/bash", "For Loops", "Console log"],
     correctAnswer:
 }];
+// click event for next button to switch to next question after answer
+nextButton

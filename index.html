@@ -8,14 +8,24 @@
     <title>Coding Quiz</title>
 </head>
 <body>
+    <div>
     <h1>Coding knowledge Quiz</h1>
+    </div>
+    <div class ="container">
+        <div id="question container" class="hide">
+            <h2 id = "questionTitle"> </h2>
+            <ul id = "selectionList"> </ul>         
+        </div>
+        
+        <div class="controls">
+            <button id="start-button" class="start-button">Start</button>
+            <button id="next-button" class="next next-button hide">Next</button>
+            <!-- hide next button from default  -->
+        </div>
     <!-- GIVEN I am taking a code quiz
     WHEN I click the start button
     THEN a timer starts and I am presented with a question -->
 <!-- needed:"start button, timer, question to start off questions " -->
-    <h2 id = "questionTitle"> </h2>
-    <ul id = "selectionList"> </ul> 
-
 
     <!-- WHEN I answer a question
             THEN I am presented with another question -->
@@ -25,5 +35,6 @@
 
 
     <script src="./script.js"></script>
+    </div>
 </body>
 </html>

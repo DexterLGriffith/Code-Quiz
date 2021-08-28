@@ -1,0 +1,30 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* general quiz allignment on webpage  */
+body {
+    padding: 0;
+    margin: 0;
+    display:flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+}
+/* quiz card on webpage.  */
+.container {
+    width: 800px;
+    max-width: 80%;
+    border-radius: 10px;
+    border-color: dimgray;
+    padding: 10px;
+}
+.button-grid {
+    display: grid;
+}
+
+.hide {
+    display:none; 
+}
