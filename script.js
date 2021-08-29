@@ -1,20 +1,29 @@
-const startButton = document.getElementbyId("start-button")
-const allQuestionsContainer = document.getElementById("allQuestions")
-
+const startButton = document.querySelector("#start-button");
+const allQuestionsContainer = document.querySelector("#allQuestions");
+const question = document.querySelector("#questionTitle");
 startButton.addEventListener("click", Start)
 
 // console.log("start")
 function Start() {
     startButton.classList.add("hide")
     allQuestionsContainer.classList.remove("hide")
-    currentQuestionIndex = 0
+    allQuestions = {...question}
+    score = 0 
     setNextQuestion()
+
+
+
+
+
+
+
 }
 function setNextQuestion() {
-    showQuestion(currentQuestionIndex)
+    showQuestion(allQuestions)
+
 }
 function showQuestion(question) {
-    questionElement.innertext = question.question
+    question.innertext = question.question
     question.answer.forEach(element => {
         const button = document.createElement("type", "radio");
         button.innerText = answer.text
@@ -74,6 +83,6 @@ var allQuestions = [
     }
 ];
 // click event for next button to switch to next question after answer
-nextButton
+
 // if question right or wrong 
 
