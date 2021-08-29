@@ -3,6 +3,12 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 /* general quiz allignment on webpage  */
+.head {
+    display: flex;
+    max-width: 100%;
+    justify-content: space-between;
+    font-weight: 900;
+}
 body {
     padding: 0;
     margin: 0;
@@ -13,6 +19,16 @@ body {
     align-items: center;
     background-color: lightblue;
 }
+.Title {
+    display:flex;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-weight: 1000;
+    font-size: 1.5rem;
+
+}
 /* quiz card on webpage.  */
 .container {
     width: 800px;
@@ -21,6 +37,7 @@ body {
     border-color: dimgray;
     padding: 10px;
     align-items: center;
+    justify-content: center;
 }
 
 
@@ -28,11 +45,19 @@ body {
     display:none; 
 }
 #start-button {
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-align: center;
     width: 24rem;
     background-color: ghostwhite;
     align-items: center;
+    
 
 
+}
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+   
 }
