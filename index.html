@@ -18,40 +18,23 @@
     <h1>Coding knowledge Quiz</h1>
     <p>This brief quiz will test your basic understanding of the Coding language!</p>
     </div>
-            
-    <div class="button">
-        <button id="start-button" class="start-button">Start Quiz</button>
-        <button id="next-button" class="next next-button hide">Next</button>
-        <!-- hide next button from default  -->
-    </div>
+    <div id="container">        
+        <div class="button">
+            <button id="start-button" class="start-button">Start Quiz</button>
+        </div>
     
-    <div class="questionContainer"> 
-        <h1 id="Question">ask question</h1>
-        <div class="answerChoicebox">
-            <p class="letter">A</p>
-            <p class="questionoptions" number="1">choice 1</p>
-        </div>
-        <div class="answerChoicebox">
-            <p class="letter">B</p>
-            <p class="questionoptions" number="2">choice 2</p>
-        </div>
-        <div class="answerChoicebox">
-            <p class="letter">C</p>
-            <p class="questionOptions" number="3">choice 3</p>
-        </div>
-        <div class="answerChoicebox">
-            <p class="letter">D</p>
-            <p class="questionoptions" number="4">choice 4</p>
+        <div id="questionContainer" style = "display: none;">
+            <div id="question"></div>
+            <div id="choices">
+
+                <!-- checkanswer variable to show right or wrong..  -->
+                <div class = "choice" id="1" onclick="checkAnswer('1')"></div>
+                <div class = "choice" id="2" onclick="checkAnswer('2')"></div>
+                <div class = "choice" id="3" onclick="checkAnswer('3')"></div>
+                <div class = "choice" id="4" onclick="checkAnswer('4')"></div>
+            </div>
         </div>
     </div>
-
-
-    <!-- <div class ="container">
-        <div id="allQuestions" class="hide">
-            <h2 id = "questionTitle"> </h2>
-            <ul id = "answersList"> </ul>         
-        </div>
-    </div> -->
     <!-- GIVEN I am taking a code quiz
     WHEN I click the start button
     THEN a timer starts and I am presented with a question -->

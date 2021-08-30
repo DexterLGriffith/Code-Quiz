@@ -71,12 +71,13 @@ body {
     padding: 2px;
     margin: 2px;
 }
-.answerChoicebox {
+#questionContainer {
     display: flex;
     border: solid;
     justify-content: center;
     border-width: 1px;  
     margin: 2px;
+    width: 50%;
 
 }
 footer h4{
