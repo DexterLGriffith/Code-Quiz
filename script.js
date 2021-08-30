@@ -1,112 +1,91 @@
 const startButton = document.querySelector("#start-button");
-const allQuestionsContainer = document.querySelector("#allQuestions");
-const question = document.querySelector("#questionTitle");
-const answers = document.querySelector("#answersTitle");
+const Question = document.querySelector("#Questions");
+const choice = document.querySelector("#questionTitle");
+const answers = Array.from(document.querySelectorAll("questionOptions"));
 startButton.addEventListener("click", Start)
 
-// console.log("start")
+
+
 function Start() {
-    startButton.classList.add("hide")
-    allQuestionsContainer.classList.remove("hide")
-    allQuestions = {...question}
-    score = 0 
-    length =""
-    // setNextQuestion()
-
-
-
-
-
-
-
+    startButton.classList.add("hide")   
 }
-var i = 0; 
-var lengthQ = allQuestions;
-var correctAnswer = true
+    
+let currentQuestion = {}
+let acceptingAnswers = true
+let availableQuestions = []
+let questionCounter = 0
+let score = 0
 
-
-function showQuestion() {
-    var allQuestions = allQuestions[i];
-    questionTitle.innerText = allQuestions.question;
-
-    answersList.innerHTML = "";
-    for(key in allQuestions.answers){
-        var radioBtnName = "question" + i + "choice";
-        var choiceText = allQuestions.choices[key];
-        answersList.appendchild(createLi(radioBtnName,choiceText));
-
-    }
-}
-
-
-// function setNextQuestion() {
-//     showQuestion(allQuestions)
-// }
-// function showQuestion(question) {
-//     question.innertext = question.question
-//     // question.answers.for(answer => {
-//     //     const button = document.createElement("button")
-//     //     button.innerText = answer.text
-//     //     button.classList.add("button")
-//     //     if (answer.correct) {
-//     //         button.dataset.correct = answer.correct
-//     //     }
-//     //     button.addEventListener('click',userChoice)
-//     //     answers.appendChild(button)
-//     // });
-// }
-
-
-
-// format answer: {text: "___" correct: "___"}
-var allQuestions = [
+// format answer:  question:
+                // choice(x): 
+                // answer(x):
+let Questions = [
     {
     question: "The condition in an if / else statement is enclosed within_.",
-    answers: [
-        { text: "Quotes", correct: "false"},
-        { text: "Curly Brackets", correct: "true"},
-        { text: "Parentheses", correct: "false"},
-        { text: "Square Brackets", correct: "false"}
-    ]
+    choice1: "Quotes",
+    choice2: "Curly Brackets",
+    choice3: "Parentheses",
+    choice4: "Square Brackets",
+    answer: 2,
     },
     {
     question: "Arrays in Javascript can be used to store_.",
-    answers: [
-        { text: "Numbers and Strings", correct: "false"},
-        { text: "Other Arrays", correct: "false"},
-        { text: "Booleans", correct: "false"},
-        { text: "All of the Above", correct: "true"}
-    ]
+    choice1: "Numbers and Strings",
+    choice2: "Other Arrays",
+    choice3: "Booleans",
+    choice4: "All of the Above",
+    answer: 4,
     },
     {  
     question: "Commonly used data types do not include",
-    answers: [
-        { text: "Strings", correct:"false"},
-        { text: "Booleans", correct:"false"},
-        { text: "Alerts", correct:"true"},
-        { text: "Numbers", correct:"false"}
-    ]
+    choice1: "Strings",
+    choice2: "Booleans",
+    choice3: "Alerts",
+    choice4: "Numbers",
+    answer: 3,
     },
     {
     question: "String values must be enclosed within __ when being assigned to variables.",
-    answers: [
-        { text: "Commas", correct:"true"},
-        { text: "Curly Brackets", correct:"false"},
-        { text: "Quotes", correct:"false"},
-        { text: "Parentheses", correct:"false"}
-    ]
+    
+    choice1: "Commas",
+    choice2: "Curly Brackets",
+    choice3: "Quotes",
+    choice4: "Parentheses",
+    answer: 1,
     },
     {
     question: "A very useful tool used during development and debugging for printing content to the debugger is: ",
-    answers: [
-        { text: "Javascript", correct:"true"},
-        { text: "Terminal/bash", correct:"false"},
-        { text: "For Loops", correct:"false"},
-        { text: "Console log", correct:"false"}
-    ]
+    choice1: "Javascript",
+    choice2: "Terminal/bash",
+    choice3: "For Loops",
+    choice4: "Console log",
+    answer: 1,
     }
 ];
+const totalQuestion = 5
+Start = () => {
+    questionCounter = 0
+    availableQuestions = [...Questions]
+    getNewQuestion()
+}
+
+getNewQuestion = () => {
+    if(availableQuestions.length === 0 || questionCounter > totalQuestion) {
+        localStorage.setItem("mostRecentScore", score)
+
+        return window.location.assign("/end.html")
+    }
+    questionCounter++
+    currentQuestion = availableQuestions[Questions]
+    question.innerText = curentQuestion.question
+
+    choices.forEach(choice => {
+        const choiceNumber = choice.dataset["number"]
+        choice.innerText = currentQuestion["choice" + number] 
+    })
+
+} 
+
 // click event for next button to switch to next question after answer
 
 // if question right or wrong 
-

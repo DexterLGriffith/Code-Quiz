@@ -29,6 +29,7 @@ body {
     font-size: 1.5rem;
 
 }
+
 /* quiz card on webpage.  */
 .container {
     width: 800px;
@@ -60,4 +61,27 @@ body {
     align-items: center;
     width: 100vw;
    
+}
+#Question { 
+    display: flex;
+    border: solid;
+    justify-content: center;    
+    border-width: 1px;
+    border-color: black;
+    padding: 2px;
+    margin: 2px;
+}
+.answerChoicebox {
+    display: flex;
+    border: solid;
+    justify-content: center;
+    border-width: 1px;  
+    margin: 2px;
+
+}
+footer h4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: smaller;
 }
