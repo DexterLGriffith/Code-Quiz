@@ -4,6 +4,11 @@ const choice1 = document.getElementById("1");
 const choice2 = document.getElementById("2");
 const choice3 = document.getElementById("3");
 const choice4 = document.getElementById("4");
+const count = 0;
+const score = 0;
+const timer = 0;
+const currentQuestionIndex = 0;
+const questioncontainer = document.getElementById("questioncontainer");   
 startButton.addEventListener("click", Start)
 
 
@@ -11,81 +16,102 @@ startButton.addEventListener("click", Start)
 function Start() {
     startButton.classList.add("hide")  
 questionContainer.style.display = "block";
+let titleelement = document.querySelector(".Title");
+    titleelement.style.display = "none";
+
 renderQuestion();
 }
 
 // format answer:  question:
                 // choice(x): 
                 // answer(x):
-let Questions = [
+let questions = [
     {
-    question : "The condition in an if / else statement is enclosed within_.",
-    choice1 : "Quotes",
-    choice2 : "Curly Brackets",
-    choice3 : "Parentheses",
-    choice4 : "Square Brackets",
-    answer : "2"
+    question: "The condition in an if / else statement is enclosed within_.",
+    choice: ["Quotes", "Curly Brackets", "Parentheses", "Square Brackets"], 
+    correctAnswer: "Curly Brackets"
+    
+  
     },
     {
-    question : "Arrays in Javascript can be used to store_.",
-    choice1 : "Numbers and Strings",
-    choice2 : "Other Arrays",
-    choice3 : "Booleans",
-    choice4 : "All of the Above",
-    answer : "4"
+    question: "Arrays in Javascript can be used to store_.",
+    choice: ["Numbers and Strings", "Other Arrays", "Booleans", "All of the Above"],
+    correctAnswer: "All of the Above"
     },
     {  
-    question : "Commonly used data types do not include",
-    choice1 : "Strings",
-    choice2 : "Booleans",
-    choice3 : "Alerts",
-    choice4 : "Numbers",
-    answer : "3"
+    question: "Commonly used data types do not include",
+    choice: ["Strings", "Booleans", "Alerts", "Numbers"],
+    correctAnswer: "Alerts"
     },
     {
-    question : "String values must be enclosed within __ when being assigned to variables.",
-    choice1 : "Commas",
-    choice2 : "Curly Brackets",
-    choice3 : "Quotes",
-    choice4 : "Parentheses",
-    answer : "1"
+    question: "String values must be enclosed within __ when being assigned to variables.",
+    choice: ["Commas", "Curly Brackets", "Quotes", "Parentheses"],
+    correctAnswer: "Commas"
     },
     {
     question : "A very useful tool used during development and debugging for printing content to the debugger is: ",
-    choice1 : "Javascript",
-    choice2 : "Terminal/bash",
-    choice3 : "For Loops",
-    choice4 : "Console log",
-    answer : "1"
+    choice: ["Javascript", "Terminal/bash", "For Loops", "Console log"],
+    correctAnswer: "Javascript"
     }
 ];
 // TEST VARIABLES
-const lastQuestion = Questions.length -1;
-let Questionshown = 0;
+let questionshown = 0;
 function renderQuestion() {
-    question.innerHTML = "<p>" + Questions[Questionshown].question + "</p>";
-    choice1.innerHTML = Questions[Questionshown].choice1;
-    choice2.innerHTML = Questions[Questionshown].choice2;
-    choice3.innerHTML = Questions[Questionshown].choice3;
-    choice4.innerHTML = Questions[Questionshown].choice4;
-    Questionshown ++
-    renderQuestion()
+    const lastQuestion = questions.length -1;
+    if (currentQuestionIndex <= lastQuestion){
+        document.getElementById("title").innerHTML = questions[currentQuestionIndex].question
+        renderQuestionChoices();
+        //rendering the question on the page..using JS variables.. 
+        //always have to use currentQuestionIndex when rending questions. 
+    }
+function renderQuestionChoices() {
+    let questionL = questions[currentQuestionIndex].choice
+    for (let index = 0; index < questionL.length; index++) {
+        var questionChoiceDiv = document.getElementById("questionChoices")
+        var choiceradio = document.createElement("button")
+        choiceradio.innerHTML = questions[index].choice;
+        choiceradio.setAttribute("type", "radio");
+        var label =document.createElement("label");
+        label.htmlFor = "text" + questionL;
+        choiceradio.setAttribute(
+            "onclick", "index"
+          );
+        
+    }
+    questionChoiceDiv.append(choiceradio);
+}
+// function to check answer
 
-}
-function checkAnswer (answer){
-    if(Questions[Questionshown].correct === answer){
-        score ++;
-        answerIsCorrect();
+
+    // let currentquestion = questions[currentQuestionIndex]; 
+    // let questionelement = currentquestion.question;
+    // currentquestion.choices
+
+
     }
-    else {
-        answerIsWrong();
-    }
-    if(Questionshown < lastQuestion){
-        count = 0;
-        Questionshown++;
-        questionRender();
-    }
-    else {
-        clearInterval();
-    }
-}
+    // question.innerHTML = "<p>" + questions[questionshown].question + "</p>";
+    // choice1.innerHTML = questions[questionshown].choice1;
+    // choice2.innerHTML = questions[questionshown].choice2;
+    // choice3.innerHTML = questions[questionshown].choice3;
+    // choice4.innerHTML = questions[questionshown].choice4;
+    // questionshown ++
+    // renderQuestion()
+
+
+// function checkAnswer (answer){
+//     if(questions[questionshown].correct === answer){
+//         score ++;
+//         // answerIsCorrect();
+//     }
+//     else { 
+//         questions[questionshown].correct !== answer
+//         score --;
+//         // answerIsWrong();
+//     }
+//     if(questionshown < lastQuestion){
+//         questionshown++;
+//         questionRender();
+//     }
+//     else {
+//         clearInterval();
+//     }
